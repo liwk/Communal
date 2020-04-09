@@ -1,0 +1,2 @@
+rootProject.name='Communal'
+include ':app', ':communallib'

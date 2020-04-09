@@ -1,0 +1,107 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+//    // appcompat，暂时不要更新版本，1.1.0 don't handle bug with webview in android 5.1.1
+//    api 'androidx.appcompat:appcompat:1.1.0'
+    // recyclerview
+    implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha02'
+
+    // gson
+    api 'com.google.code.gson:gson:2.8.6'
+
+    // Banner
+    api 'com.youth.banner:banner:1.4.10'
+
+    // Bugly，其中latest.release指代最新版本号，也可以指定明确的版本号，例如1.2.0
+    api 'com.tencent.bugly:crashreport_upgrade:1.4.5'
+    api 'com.tencent.bugly:nativecrashreport:3.7.1'
+
+    // RecyclerView适配器
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.47-androidx'
+
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0'
+
+    // 微信（包含统计功能）
+    api 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+
+    // 图片加载
+    api 'com.github.bumptech.glide:glide:4.11.0'
+    // glide兼容
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    // glide-transformations
+    api 'jp.wasabeef:glide-transformations:4.1.0'
+
+    // Gif图片
+    api 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
+
+    // 事件总线
+    api 'org.greenrobot:eventbus:3.2.0'
+
+    // 2020/2/17 1.1.2->1.2.0
+    api 'me.jessyan:autosize:1.2.0'
+
+    // 日志
+    api 'com.orhanobut:logger:2.2.0'
+
+    // 运行时权限
+    api 'com.github.tbruyelle:rxpermissions:0.10.2'
+    // retrofit
+    api 'com.squareup.retrofit2:retrofit:2.6.0'
+    // Json转换器
+    api 'com.squareup.retrofit2:converter-gson:2.5.0'
+    // Log拦截器
+    api 'com.squareup.okhttp3:logging-interceptor:4.0.1'
+    // RxJava适配器
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+    // rxjava
+    api 'io.reactivex.rxjava2:rxjava:2.2.10'
+    // rxandroid
+    api 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    // RxJava生命周期
+    api 'com.trello.rxlifecycle3:rxlifecycle-android:3.0.0'
+
+    // 日志
+    api 'com.orhanobut:logger:2.2.0'
+
+    api 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+
+    api 'com.github.yjfnypeu:UpdatePlugin:3.1.2'
+
+}

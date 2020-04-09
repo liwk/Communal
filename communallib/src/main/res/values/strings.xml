@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="wechat_not_installed">您还未安装微信客户端！</string>
+    <string name="save_image_success">保存成功！去微信扫一扫识别二维码</string>
+    <string name="zero_amount">0.00</string>
+</resources>
