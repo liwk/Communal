@@ -1,6 +1,10 @@
 package com.egee.communallib.utils;
 
+import androidx.annotation.Nullable;
+
+import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
+import com.orhanobut.logger.PrettyFormatStrategy;
 
 /**
  * @Date: 2019/10/10 10:20
@@ -10,13 +14,18 @@ import com.orhanobut.logger.Logger;
  */
 public class LogUtils {
 
-    /**
-     * 是否打印日志
-     */
-    private static boolean sIsDebug;
 
     private LogUtils() {
         throw new UnsupportedOperationException("LogUtils cannot be instantiated!");
+    }
+
+    public static void init(String tag, boolean isLoggable) {
+        Logger.addLogAdapter(new AndroidLogAdapter(PrettyFormatStrategy.newBuilder().tag(tag).build()) {
+            @Override
+            public boolean isLoggable(int priority, @Nullable String tag) {
+                return isLoggable;
+            }
+        });
     }
 
     /**
@@ -25,8 +34,7 @@ public class LogUtils {
      * @param msg
      */
     public static void v(String msg) {
-        if (sIsDebug)
-            Logger.v(msg);
+        Logger.v(msg);
     }
 
     /**
@@ -35,8 +43,7 @@ public class LogUtils {
      * @param obj
      */
     public static void d(Object obj) {
-        if (sIsDebug)
-            Logger.d(obj);
+        Logger.d(obj);
     }
 
     /**
@@ -45,8 +52,7 @@ public class LogUtils {
      * @param msg
      */
     public static void d(String msg) {
-        if (sIsDebug)
-            Logger.d(msg);
+        Logger.d(msg);
     }
 
     /**
@@ -55,8 +61,7 @@ public class LogUtils {
      * @param msg
      */
     public static void i(String msg) {
-        if (sIsDebug)
-            Logger.i(msg);
+        Logger.i(msg);
     }
 
     /**
@@ -65,8 +70,7 @@ public class LogUtils {
      * @param msg
      */
     public static void w(String msg) {
-        if (sIsDebug)
-            Logger.w(msg);
+        Logger.w(msg);
     }
 
 
@@ -76,8 +80,7 @@ public class LogUtils {
      * @param msg
      */
     public static void e(String msg) {
-        if (sIsDebug)
-            Logger.e(msg);
+        Logger.e(msg);
     }
 
     /**
@@ -87,8 +90,7 @@ public class LogUtils {
      * @param msg
      */
     public static void e(Throwable throwable, String msg) {
-        if (sIsDebug)
-            Logger.e(throwable, msg);
+        Logger.e(throwable, msg);
     }
 
     /**
@@ -97,8 +99,7 @@ public class LogUtils {
      * @param msg
      */
     public static void a(String msg) {
-        if (sIsDebug)
-            Logger.wtf(msg);
+        Logger.wtf(msg);
     }
 
     /**
@@ -107,8 +108,7 @@ public class LogUtils {
      * @param xml
      */
     public static void xml(String xml) {
-        if (sIsDebug)
-            Logger.xml(xml);
+        Logger.xml(xml);
     }
 
     /**
@@ -117,8 +117,7 @@ public class LogUtils {
      * @param json
      */
     public static void json(String json) {
-        if (sIsDebug)
-            Logger.json(json);
+        Logger.json(json);
     }
 
 }
