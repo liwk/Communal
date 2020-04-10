@@ -40,3 +40,8 @@ logger日志<br>
 retrofit+rxJava<br>
 butterknife<br>
 [UpdatePlugin](https://github.com/easyandroidgroup/UpdatePlugin),可任意定制的app更新组件。<br>
+
+# 新版本问题<br>
+* 1.0.1修复问题：<br>
+	* LogUtils在调用的时候需要在Application中进行初始化，Logutils.init(tag,isLoggable)
+	* 删除包内BaseObserver和ExceptionHandler需要在应用内手动调用
