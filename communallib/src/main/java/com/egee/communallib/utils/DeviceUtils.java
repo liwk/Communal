@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
 
 import androidx.core.app.ActivityCompat;
@@ -93,7 +94,8 @@ public class DeviceUtils {
      * 获取手机IMEI，需要
      * 1.android.permission.READ_PHONE_STATE 权限；
      * 2.系统版本api28及以下；
-     *
+     * targetSdkVersion<29 的应用，其在获取设备ID时，会直接返回null
+     * targetSdkVersion>=29 的应用，其在获取设备ID时，会直接抛出异常SecurityException
      * @return 手机IMEI
      */
     public static String getIMEI(Context context) {
@@ -115,8 +117,11 @@ public class DeviceUtils {
                 }
             }
         }
-        LogUtils.d("系统版本：api" + getSDKVersion() + "，imei：" + imei);
         return imei;
+    }
+
+    public static String getAndroidId(Context context){
+        return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
     }
 
 

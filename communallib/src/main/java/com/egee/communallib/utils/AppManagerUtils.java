@@ -44,7 +44,7 @@ public class AppManagerUtils {
      *
      * @param activity Activity
      */
-    public void addActivity(Activity activity) {
+    public static void addActivity(Activity activity) {
         sActivityStack.add(activity);
     }
 
@@ -53,7 +53,7 @@ public class AppManagerUtils {
      *
      * @param activity Activity
      */
-    public void finishActivity(Activity activity) {
+    public static void finishActivity(Activity activity) {
         if (activity != null) {
             sActivityStack.remove(activity);
             activity.finish();
